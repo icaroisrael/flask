@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+td a:first-child {
+    background-color: #3498db;
+    color: white;
+}
+
+td a:last-child {
+    background-color: #e74c3c;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+
+    
+        <table>
+    <thead>
+        <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Sexo</th>
+            <th>E-mail</th>
+            <th>Turma</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno[0] }}</td>
+            <td>{{ aluno[1] }}</td>
+            <td>{{ aluno[2] }}</td>
+            <td>{{ aluno[3] }}</td>
+            <td>{{ aluno[4] }}</td>
+            <td>{{ aluno[5] }}</td>
+            <td>
+                <a href="/editar/{{ aluno[0] }}">Editar</a>
+                <a href="/excluir/{{ aluno[0] }}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    </div>
+</body>
+</html>
